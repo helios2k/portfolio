@@ -1,0 +1,124 @@
+@use "base";
+
+.navbar {
+  height: 85px;
+  width: 100%;
+  display: flex;
+  color: #fff;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(18, 18, 18, 0.3);
+  padding: 0.8rem 3rem;
+  font-family: base.$main-font;
+  position: fixed;
+  opacity: 1;
+  z-index: 9999;
+  &__logo img {
+    width: 150px;
+    margin: 0 1rem;
+  }
+  &__links {
+    display: flex;
+    list-style: none;
+    margin: 0 auto;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1.8em;
+    font-weight: 400;
+    font-size: 1.25rem;
+    width: 75%;
+    &__item {
+      text-decoration: none;
+      color: inherit;
+      transition: all ease 0.3s;
+      &:hover {
+        color: base.$main-color;
+      }
+    }
+  }
+  &__btn {
+    border-radius: 10px;
+    padding: 0.5em 0.6em;
+    font-family: base.$main-font;
+    font-size: 1.3rem;
+    font-weight: bold;
+    background: transparent;
+    border: 3px solid base.$main-color;
+    color: #fff;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all ease-in-out 0.3s;
+    &:hover,
+    :focus {
+      border-color: base.$main-color;
+      background-image: linear-gradient(
+        to right,
+        #c05299,
+        #973aa8,
+        #6d23b6,
+        #6411ad
+      );
+      animation: pulse 1s;
+      box-shadow: 0 0 0 2em transparent;
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 base.$main-color;
+        }
+      }
+    }
+  }
+}
+
+.burger-menu {
+  display: none;
+  font-size: 1.5rem;
+  margin: 0 -1rem 0 1rem;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    background-color: rgba(18, 18, 18, 0.3);
+    &__links {
+      transform: translate(100%, -100%);
+      visibility: hidden;
+      opacity: 0;
+      position: fixed;
+      background-color: rgba(18, 18, 18, 0.1);
+      display: block;
+      flex-direction: column;
+      height: 500px;
+      width: 100%;
+      line-height: 2rem;
+      margin: 3rem 0;
+      top: 0;
+      right: 0;
+      text-align: center;
+      margin: 0 auto;
+      transform: scale(0%);
+      transform: translateY(-50%);
+      transition: all ease 0.3s;
+      li {
+        margin: 4rem 0;
+      }
+    }
+    &__links .activeMobile {
+      transform: scale(1);
+      transform: translate(0, 0);
+      opacity: 1;
+      border-radius: 0;
+      visibility: visible;
+      background-color: rgba(18, 18, 18, 0.9);
+    }
+    &__logo img {
+      margin: 0 -2.5rem;
+    }
+  }
+  .burger-menu {
+    display: block;
+    z-index: 100;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    border: 3px violet solid;
+  }
+}
