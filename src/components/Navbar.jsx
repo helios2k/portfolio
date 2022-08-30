@@ -23,7 +23,7 @@ const Navbar = () => {
           <a href='/' className='navbar__links__item'>Home</a>
         </li>
         <li>
-          <a href='/about' className='navbar__links__item'>Skills</a>
+          <a href='/about' className='navbar__links__item'>About</a>
         </li>
         <li>
           <a href='/projects' className='navbar__links__item'>Projects</a>
