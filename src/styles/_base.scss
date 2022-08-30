@@ -2,9 +2,39 @@
 
 $main-font: "Poppins", sans-serif;
 $main-color: #ee82ee;
+$p-color: rgb(235, 235, 235);
+
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+a,
+li {
+  text-decoration: none;
+  color: #fff;
+}
+
+img {
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+%button-basic {
+  border-radius: 10px;
+  padding: 0.5em 0.6em;
+  font-family: $main-font;
+  font-size: 1.3rem;
+  font-weight: bold;
+  background: transparent;
+  border: 3px solid $main-color;
+  color: #fff;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all ease-in-out 0.3s;
 }

@@ -1,0 +1,136 @@
+@use "base";
+
+.home {
+  background-image: url("../assets/home-bg.jpg");
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 2rem;
+  overflow: hidden;
+  &__left {
+    padding: 0 3.5rem;
+    color: #fff;
+    flex: 1;
+    font-family: base.$main-font;
+    font-size: x-large;
+    margin-bottom: 2rem;
+    h1 {
+      line-height: 5rem;
+      margin: 0.6rem 0 0.7rem 0;
+      font-size: 3.5rem;
+      color: base.$main-color;
+      background-image: linear-gradient(45deg, base.$main-color, #feab3a);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: hue 10s infinite ease;
+    }
+    p {
+      margin: 1rem 0;
+      line-height: normal;
+      color: base.$p-color;
+    }
+  }
+  &__right {
+    width: 60%;
+    flex: 1;
+    text-align: center;
+    padding-top: 3rem;
+    img {
+      position: relative;
+      max-width: 90%;
+      animation: float 3s infinite;
+      transition: all 0.3s ease-in-out;
+    }
+    @keyframes float {
+      0% {
+        transform: translateY(-0.5rem);
+      }
+      50% {
+        transform: translateY(1rem);
+      }
+      100% {
+        transform: translateY(-0.5rem);
+      }
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    .btn1,
+    .btn2 {
+      @extend %button-basic;
+      margin: 1rem 2rem 0 0;
+      &:hover {
+        transform: scale(120%);
+        color: #fff;
+      }
+    }
+    .btn1 {
+      color: #fff;
+      &:hover,
+      &:active {
+        background-image: url("../assets/home-btn-img.png");
+        background-size: cover;
+      }
+    }
+  }
+}
+
+@keyframes hue {
+  from {
+    filter: hue-rotate(0deg);
+  }
+  to {
+    filter: hue-rotate(-360deg);
+  }
+}
+
+@media (max-width: 1024px) {
+  .hero-right img {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .home {
+    overflow: hidden;
+    flex-direction: column-reverse;
+    height: 115vh;
+    padding-top: 4rem;
+    &__left {
+      text-align: center;
+      h1 {
+        margin: 0.5rem 0;
+        font-size: 3.5rem;
+      }
+      h3 {
+        font-size: 1.5rem;
+      }
+    }
+    &__right {
+      flex: none;
+    }
+    &__buttons {
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      .btn1,
+      .btn2 {
+        margin: 1rem;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+      .btn1 {
+        background-image: url("../assets/home-btn-img.png");
+        background-size: cover;
+      }
+    }
+  }
+}
