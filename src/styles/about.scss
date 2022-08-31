@@ -1,0 +1,239 @@
+@use "base";
+
+html,
+body {
+  scroll-behavior: smooth;
+}
+
+.about {
+  height: 120vh;
+  width: 100%;
+  overflow: hidden;
+  // Easing the section divider
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: -10%;
+    width: 100%;
+    height: 100px;
+    background-image: linear-gradient(to top, #30133a, transparent);
+    z-index: 9;
+  }
+  &__cover {
+    &__title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      flex-direction: column;
+      height: 110vh;
+      font-weight: bolder;
+      color: #fff;
+      z-index: 100;
+      position: absolute;
+      font-size: xx-large;
+      h1 {
+        font-family: base.$main-font;
+        font-size: 5rem;
+        padding-bottom: 2rem;
+      }
+    }
+  }
+  &__scroll-btn,
+  &__scroll-btn:before {
+    position: absolute;
+    left: 50%;
+  }
+  &__scroll-btn {
+    width: 40px;
+    height: 70px;
+    margin-left: -20px;
+    top: 70%;
+    margin-top: -35px;
+    transform: translateY(100%);
+    box-shadow: inset 0 0 0 2px #fff;
+    border-radius: 25px;
+    transition: all 3s ease-in-out;
+    &::before {
+      content: "";
+      width: 16px;
+      height: 16px;
+      background: #fff;
+      margin-left: -8px;
+      top: 10px;
+      border-radius: 8px;
+      animation: scroll 1.5s infinite;
+    }
+    @keyframes scroll {
+      0% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(39px);
+      }
+    }
+  }
+  &__content {
+    position: absolute;
+    top: 110%;
+    width: 100%;
+    height: 200vh;
+    background-image: linear-gradient(to bottom, #30133a, #6f1ca6);
+    display: flex;
+    justify-content: center;
+    padding-top: 3.5rem;
+    align-items: flex-start;
+    background-size: cover;
+    z-index: 10;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100px;
+      background-image: linear-gradient(to bottom, #30133a, transparent);
+      z-index: 99999;
+    }
+  }
+}
+
+// Parallax cover
+.front {
+  position: absolute;
+  top: 10%;
+  height: 100vh;
+  width: 100vw;
+  z-index: 10;
+}
+.mid1 {
+  transform: translateY(10%);
+  height: 100vh;
+  width: 100vw;
+  z-index: -100;
+  img {
+    z-index: -100;
+  }
+}
+.mid2 {
+  position: absolute;
+  transform: translateY(-80%);
+  height: 100vh;
+  width: 100%;
+  z-index: -100;
+}
+.sky {
+  position: absolute;
+  top: -10%;
+  background-image: url("../assets/sky.jpg");
+  background-size: cover;
+  height: 200vh;
+  width: 200vw;
+  z-index: 1000;
+}
+.comet {
+  position: absolute;
+  top: -20%;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100%;
+  z-index: -1;
+  mix-blend-mode: screen;
+  transform: translateX(-100%);
+}
+
+.content {
+  width: 80vw;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  z-index: 5;
+  gap: 1rem;
+  border-radius: 40px;
+  padding: 0 0.5rem;
+  font-family: base.$main-font;
+  text-align: center;
+  color: rgb(241, 241, 241);
+  &__text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    h1 {
+      max-width: fit-content;
+      font-size: 2.5rem;
+      margin: 1rem 0;
+      //   border-bottom: 3px solid base.$main-color;
+      text-decoration-line: underline;
+      text-decoration-style: wavy;
+      text-decoration-color: base.$main-color;
+      text-underline-offset: 1rem;
+    }
+    p {
+      font-size: 1.5rem;
+      color: base.$p-color;
+    }
+  }
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+    max-width: 85%;
+    max-height: 90%;
+    &-item {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      align-self: center;
+      max-width: 100%;
+      p {
+        font-size: larger;
+      }
+      img {
+        max-width: 90%;
+        min-width: 0;
+        min-height: 0;
+        transition: all ease 0.3s;
+        &:hover {
+          transform: scale(120%);
+        }
+      }
+    }
+
+    @media (max-width: 1024px) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    @media (max-width: 580px) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.3rem;
+      .grid-item {
+        max-width: 5rem;
+        align-self: center;
+        justify-self: center;
+      }
+    }
+  }
+  &__btn {
+    @extend %button-basic;
+    margin-top: 1rem;
+    &:hover {
+      transform: scale(120%);
+    }
+  }
+}
+
+@media (min-width: 767px) {
+  .about__content {
+    height: 160vh;
+  }
+}
+
+@media (max-width: 500px) {
+  .about__content {
+    height: 210vh;
+  }
+}
