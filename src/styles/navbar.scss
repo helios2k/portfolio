@@ -28,7 +28,6 @@
     font-size: 1.25rem;
     width: 75%;
     &__item {
-      text-decoration: none;
       color: inherit;
       transition: all ease 0.3s;
       &:hover {
@@ -37,17 +36,7 @@
     }
   }
   &__btn {
-    border-radius: 10px;
-    padding: 0.5em 0.6em;
-    font-family: base.$main-font;
-    font-size: 1.3rem;
-    font-weight: bold;
-    background: transparent;
-    border: 3px solid base.$main-color;
-    color: #fff;
-    cursor: pointer;
-    white-space: nowrap;
-    transition: all ease-in-out 0.3s;
+    @extend %button-basic;
     &:hover,
     :focus {
       border-color: base.$main-color;
@@ -74,6 +63,10 @@
   font-size: 1.5rem;
   margin: 0 -1rem 0 1rem;
   cursor: pointer;
+}
+
+.scrolled {
+  background-color: rgba(18, 18, 18, 0.9);
 }
 
 @media (max-width: 768px) {
@@ -122,3 +115,4 @@
     border: 3px violet solid;
   }
 }
+

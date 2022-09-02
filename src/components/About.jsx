@@ -1,6 +1,7 @@
 // Libraries
 import React, { useState, useEffect, useRef } from 'react'
 import gsap from 'gsap'
+import { Link } from 'react-router-dom'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
@@ -66,15 +67,14 @@ const About = () => {
   }, [])
 
   useEffect(() => {
-    gsap.fromTo('.content__grid-item', { opacity:0, scale: 0 }, {
+    gsap.fromTo('.content__grid-item', { opacity: 0, scale: 0 }, {
       duration: 1.5,
       opacity: 1,
-      scale:1,
+      scale: 1,
       ease: 'power3.out',
-      delay: 0.4,
-      stagger: 0.2,
+      stagger: 0.3,
       scrollTrigger: {
-        trigger:'content__grid-item'
+        trigger: '.content__button'
       }
     })
   }, [])
@@ -111,13 +111,13 @@ const About = () => {
           <div className='content__text'>
             <h1> Who am I? </h1>
             <p>
-            &nbsp; My name is Nam Long, or Nathan. I'm a <span style={{ textDecoration: 'underline dotted', textUnderlineOffset:'.5rem' }}>fresh graduate</span>  from Ryerson University, Toronto.  
+              &nbsp; My name is Nam Long, or Nathan. I'm a <span style={{ textDecoration: 'underline dotted', textUnderlineOffset: '.5rem' }}>fresh graduate</span>  from Ryerson University, Toronto.
             </p>
             <p>
-            &nbsp; I'm captivated by the endless possibilities of web development, and I thrive to implement eye pleasing & unique experiences that brings websites to life.
+              &nbsp; Being captivated by the endless possibilities of web development, I always thrive to implement eye-pleasing & unique experiences that brings websites to life.
             </p>
             <h1> Tech Stack </h1>
-            <p>Languages I speak:</p>
+            <p>Languages I speak / tools I've worked with: </p>
           </div>
           <div className='content__grid'>
             <div className='content__grid-item'>
@@ -153,7 +153,7 @@ const About = () => {
               <p> Python </p>
             </div>
           </div>
-          <button className='content__btn'>View my works</button>
+          <Link to='/projects'><button className='content__btn'>View my works</button></Link>
         </div>
       </div>
 

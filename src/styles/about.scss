@@ -54,6 +54,7 @@ body {
     box-shadow: inset 0 0 0 2px #fff;
     border-radius: 25px;
     transition: all 3s ease-in-out;
+    z-index: 99999;
     &::before {
       content: "";
       width: 16px;
@@ -78,9 +79,11 @@ body {
     position: absolute;
     top: 110%;
     width: 100%;
-    height: 200vh;
+    min-height: 160%;
     background-image: linear-gradient(to bottom, #30133a, #6f1ca6);
+    background-size: cover;
     display: flex;
+    padding-bottom: 2rem;
     justify-content: center;
     padding-top: 3.5rem;
     align-items: flex-start;
@@ -226,14 +229,15 @@ body {
   }
 }
 
-@media (min-width: 767px) {
+@media (min-width: 768px) and (max-width: 1024px) {
   .about__content {
-    height: 160vh;
+    height: 200%;
+    background-size: cover;
   }
 }
 
-@media (max-width: 500px) {
+@media (min-width: 500px) and (max-width: 768px) {
   .about__content {
-    height: 210vh;
+    height: 180%;
   }
 }
