@@ -1,0 +1,143 @@
+@use "base";
+
+* {
+  font-family: base.$main-font;
+}
+
+.contact {
+  overflow: hidden;
+  padding-top: 2rem;
+  position: absolute;
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  background-image: url("../assets/contact-bg.jpg");
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  &__container {
+    align-items: center;
+    width: 90%;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    border-radius: 15px;
+    background-color: rgba(black, 0.4);
+    z-index: 1;
+    color: #fff;
+  }
+  &__left {
+    flex: 1.2;
+    img {
+      max-width: 100%;
+    }
+  }
+  &__right {
+    padding-top: 1rem;
+    height: 100%;
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    h1 {
+      font-size: 2.5rem;
+    }
+    p {
+      margin: 1rem 0;
+      font-size: 1.1rem;
+      color: base.$p-color;
+    }
+  }
+  &__form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70%;
+    gap: 1rem;
+    flex-direction: column;
+    margin: 1rem 0 1rem 0;
+    input {
+      padding: 0.5rem 0 0.5rem 1rem;
+      font-weight: 1.5rem;
+      box-shadow: 4px 4px rgba(base.$main-color, 0.5);
+      background-color: rgb(228, 228, 228);
+      width: 75%;
+      border-radius: 10px;
+      line-height: 2rem;
+      border: none;
+      &:focus {
+        border: 3px solid base.$main-color;
+        outline: none;
+      }
+    }
+    textarea {
+      resize: vertical;
+      width: 75%;
+      font-weight: 1.5rem;
+      padding: 0.5rem 0 0 1rem;
+      border-radius: 10px;
+      box-shadow: 4px 4px rgba(base.$main-color, 0.5);
+      background-color: rgb(228, 228, 228);
+      line-height: 2rem;
+      min-height: 9rem;
+      max-height: 15rem;
+      outline: none;
+      border: none;
+      &:focus {
+        border: 3px solid base.$main-color;
+      }
+    }
+  }
+}
+.form-btn {
+  // width: 25%;
+  border-radius: 10px;
+  margin-top: 0rem;
+  padding: 0.5em 0.6em;
+  font-size: 1.3rem;
+  font-weight: bold;
+  border: 3px solid base.$main-color;
+  color: #fff;
+  background: transparent;
+  cursor: pointer;
+  transition: all ease-in-out 0.3s;
+  &:hover {
+    transform: scale(1.2);
+  }
+}
+
+@media (max-width: 768px) {
+  .contact {
+    &__left {
+      display: none;
+    }
+    textarea {
+      min-height: 12rem;
+      max-height: 12rem;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .contact__right {
+    padding: 0 1rem;
+    h1 {
+        font-size: 2rem;
+    }
+    p {
+        font-size: 1rem;
+    }
+
+    textarea {
+      min-height: 8rem;
+      max-height: 11rem;
+    }
+  }
+  .form__container {
+    margin: 0;
+  }
+  .form-btn {
+    margin: 0;
+  }
+}
