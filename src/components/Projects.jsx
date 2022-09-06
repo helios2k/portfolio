@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
 import gsap from 'gsap'
 import '../styles/projects.scss'
 import portfolio from '../assets/portfolio.jpg'
@@ -51,12 +52,14 @@ const Projects = () => {
                 <div className='label-left'><h2>Discover Vietnam</h2></div>
                 <div className='text-container__body'>
                   <p> An image-based website showcasing Vietnam, to give viewers an overview of the country, culture and wonders. </p>
-                  <p> I opt for a modern, elegent design to take user through pages and infos with a smooth experience.</p>
+                  <p> I opt for a modern, elegant design to take user through pages and infos with a smooth experience.</p>
                   <hr />
                   <p style={{ fontStyle: 'italic', fontSize: '1.2rem', margin: '1rem 0' }}> Built with: React, React Router, GSAP & Framer Motion</p>
                   <div className='button-container'>
                     <button>Demo <FontAwesomeIcon className='icon' icon={faArrowUpRightFromSquare} /></button>
-                    <button>Source <FontAwesomeIcon className='icon' icon={faArrowUpRightFromSquare} /></button>
+                    <a href='https://github.com/helios2k/discover-vietnam' target='_blank'>
+                      <button>Source <FontAwesomeIcon className='icon' icon={faArrowUpRightFromSquare} /></button>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -105,8 +108,12 @@ const Projects = () => {
                   <hr />
                   <p style={{ fontStyle: 'italic', fontSize: '1.2rem', margin: '1rem 0' }}> Built with: React, Sass, GSAP</p>
                   <div className='button-container'>
-                    <button>Demo <FontAwesomeIcon className='icon' icon={faArrowUpRightFromSquare} /></button>
-                    <button>Source <FontAwesomeIcon className='icon' icon={faArrowUpRightFromSquare} /></button>
+                    <Link to='/contact'>
+                      <button>Message me</button>
+                    </Link>
+                    <a href='https://github.com/helios2k/portfolio' target='_blank'>
+                      <button>Source <FontAwesomeIcon className='icon' icon={faArrowUpRightFromSquare} /></button>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -124,8 +131,10 @@ const Projects = () => {
                   <hr />
                   <p style={{ fontStyle: 'italic', fontSize: '1.2rem', margin: '1rem 0' }}> Built with: CSS, Javascript, ExpressJS, Python</p>
                   <div className='button-container'>
-                    <button>Demo <FontAwesomeIcon className='icon' icon={faArrowUpRightFromSquare} /></button>
-                    <button>Source <FontAwesomeIcon className='icon' icon={faArrowUpRightFromSquare} /></button>
+                    <a href='https://github.com/helios2k/CPS-842-Movie-Recommender' target='_blank'>
+                      <button>Source <FontAwesomeIcon className='icon' icon={faArrowUpRightFromSquare} /></button>
+                    </a>
+
                   </div>
                 </div>
               </div>

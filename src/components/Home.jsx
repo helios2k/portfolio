@@ -50,7 +50,9 @@ const Home = () => {
           <Link to='/about'>
             <button className='btn1'>Explore</button>
           </Link>
-          <button className='btn2'>Hello</button>
+          <Link to='/contact'>
+            <button className='btn2'>Connect</button>
+          </Link>
         </div>
       </div>
       <div className='home__right' ref={imgAnimation}>
